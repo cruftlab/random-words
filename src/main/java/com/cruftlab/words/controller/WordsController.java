@@ -16,7 +16,7 @@ public class WordsController {
         this.wordService = wordService;
     }
 
-    @RequestMapping(value = "/words/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/words/all", method = RequestMethod.GET)
     public Iterable<Word> getAll() {
         return wordService.findAll();
     }

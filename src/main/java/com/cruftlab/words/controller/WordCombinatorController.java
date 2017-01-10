@@ -17,7 +17,7 @@ public class WordCombinatorController {
         this.wordCombinatorService = wordCombinatorService;
     }
 
-    @RequestMapping(value = "/random/{number}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/words/random/{number}", method = RequestMethod.GET)
     public CombinedWord getTwoRandom(@PathVariable int number) {
         return wordCombinatorService.combineRandom(number);
     }
