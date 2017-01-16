@@ -1,5 +1,7 @@
-#word {
+#content {
     text-align: center;
+}
+#randomWord {
     text-transform: capitalize;
 }
 

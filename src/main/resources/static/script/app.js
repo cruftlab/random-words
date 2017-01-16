@@ -42,9 +42,18 @@ var Word = React.createClass({
 
     render: function() {
         return (
-            <div id="word"><h1>{this.state.word}</h1></div>
+            <h1>{this.state.word}</h1>
         );
     }
 });
 
-ReactDOM.render(<Word url="/api/words/random/2" />, document.getElementById('content'));
+var Links = React.createClass({
+    render: function() {
+        return (
+            <a href="/" title="Nytt ord">Nytt ord</a>
+        );
+    }
+});
+
+ReactDOM.render(<Word url="/api/words/random/2" />, document.getElementById('randomWord'));
+ReactDOM.render(<Links />, document.getElementById('links'));
