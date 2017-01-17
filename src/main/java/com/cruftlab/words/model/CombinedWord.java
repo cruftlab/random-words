@@ -1,19 +1,19 @@
 package com.cruftlab.words.model;
 
 public class CombinedWord {
-    private final Iterable<CombinedWordPart> wordParts;
+    private final Iterable<CombinedWordPart> words;
 
     public CombinedWord(Iterable<CombinedWordPart> words) {
-        this.wordParts = words;
+        this.words = words;
     }
 
-    public Iterable<CombinedWordPart> getWordParts() {
-        return wordParts;
+    public Iterable<CombinedWordPart> getWords() {
+        return words;
     }
 
     public String getCombinedForm() {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (CombinedWordPart wordPart : wordParts) {
+        for (CombinedWordPart wordPart : words) {
             stringBuilder.append(wordPart.getPartialForm());
         }
         return stringBuilder.toString().toLowerCase();
