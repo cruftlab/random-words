@@ -55,5 +55,5 @@ var Links = React.createClass({
     }
 });
 
-ReactDOM.render(<Word url="/api/words/random/2" />, document.getElementById('randomWord'));
+ReactDOM.render(<Word url="/api/words/combined/random/2" />, document.getElementById('randomWord'));
 ReactDOM.render(<Links />, document.getElementById('links'));

@@ -20,7 +20,7 @@ public class WordCombinatorControllerIT {
 
     @Test
     public void getTwoCombinedWords() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/random/2/").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/words/combined/random/2/").accept(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

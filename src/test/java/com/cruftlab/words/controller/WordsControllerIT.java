@@ -20,7 +20,7 @@ public class WordsControllerIT {
 
     @Test
     public void getTwoWords() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/words/all/").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/words/all/").accept(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
