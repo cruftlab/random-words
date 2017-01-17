@@ -13,7 +13,7 @@ public class CombinedWordPart {
         return word;
     }
 
-    String getPartialForm() {
+    public String getPartialForm() {
         return partialForm;
     }
 }
