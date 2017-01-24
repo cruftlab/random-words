@@ -1,0 +1,12 @@
+language: java
+jdk:
+- oraclejdk8
+- oraclejdk7
+- openjdk6
+deploy:
+  provider: heroku
+  api_key:
+    secure: fGGv07VciEhaKG3zTJnq4nY5+UP8wIsUGuUoFbwwv+X+jrwEwFpnIG05vhFjj+0NgEq763cGHPLLvqurQYk+MEhQ1cA8iEtcJjoQr/UjwThi6BBbtAvCu0GfzAeA7V68+Nhiz8T2hiuEKC7DxFtwStVWoRdQxio5uXs4asRj2LweyeRwnn0ga5ae6s1y5BHPdkinQOEf48jy3XEufX/WSelmdV/0MzNgNLCsTOO4k8ol4yFlqidX0YcT8x2covZLLTPFh+J/0jXVBePGExMdFAdf5hmOmO14C2tag+H26+4f+tVelpKfYT5S0emST52HuWJm0ZnCGGc3/jswatWZJLDJaRr3IMp5kh0ZZlgV0QV2WHq8DyurrBMUYBKxKYrLwVIlFSywr+Zrpxkj2WUk81wha7Oek8CemJj3VIOttQtRkGJXoSMtqGLeW5XIV6rTEKGtBZrxGvvrwpACpwvTAqgE7y5xf5Uc8INBmQEmVxC+mbz9v54EcnCeENZFygoo7QIX08FGzTycKvr4bVUb3eMCzLomL/S7rcccx7rbqmhdnoJ7fGK3gHk5kXrHk0odeIrCmLU4brz9SRZqmS5LAoFRBJ23oU93FFz2ZvzYy0D0xGMlpoIx0do8jdKEhCKOdQlYvO7E3+a6qIvZd6ark54VYtHqvHGjec7biV7AXEI=
+  app: tilfeldigeord
+  on:
+    repo: cruftlab/random-words
