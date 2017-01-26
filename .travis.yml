@@ -8,3 +8,5 @@ deploy:
   app: tilfeldigeord
   on:
     repo: cruftlab/random-words
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

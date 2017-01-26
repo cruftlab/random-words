@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/cruftlab/random-words.svg?branch=master)](https://travis-ci.org/cruftlab/random-words)
+[![Build 
+Status](https://travis-ci.org/cruftlab/random-words.svg?branch=master)](https://travis-ci.org/cruftlab/random-words) 
+[![codecov](https://codecov.io/gh/cruftlab/random-words/branch/master/graph/badge.svg)](https://codecov.io/gh/cruftlab/random-words)
 
 # Local development
 To run the entire application locally, simply issue the following command:
