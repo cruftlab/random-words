@@ -8,5 +8,6 @@ deploy:
   app: tilfeldigeord
   on:
     repo: cruftlab/random-words
+script: "mvn cobertura:cobertura"
 after_success:
   - bash <(curl -s https://codecov.io/bash)
