@@ -6,20 +6,8 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Word {
+data class Word (var fullForm: String = "") {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int? = null
-
-    var fullForm: String = ""
-
-    constructor()
-
-    constructor(fullForm: String) {
-        this.fullForm = fullForm
-    }
-
-    override fun toString(): String {
-        return fullForm
-    }
+    var id: Int = 0
 }
