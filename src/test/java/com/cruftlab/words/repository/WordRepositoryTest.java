@@ -1,9 +1,8 @@
-package com.cruftlab.words.service;
+package com.cruftlab.words.repository;
 
 import com.cruftlab.words.model.Word;
-import com.cruftlab.words.repository.WordRepository;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,13 +16,13 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class WordServiceIT {
+public class WordRepositoryTest {
     @Autowired
-    private WordService wordService;
+    private WordRepository wordRepository;
 
     @Test
     public void findAll() throws Exception {
-        final Iterable<Word> words = wordService.findAll();
+        final Iterable<Word> words = wordRepository.findAll();
         Assert.assertNotNull(words);
         final List<Word> wordList = new ArrayList<>();
         for (Word word : words) {
@@ -34,7 +33,7 @@ public class WordServiceIT {
 
     @Test
     public void findTwoRandom() throws Exception {
-        final Iterable<Word> words = wordService.findRandom(2);
+        final Iterable<Word> words = wordRepository.findRandom(2);
         Assert.assertNotNull(words);
         final List<Word> wordList = new ArrayList<>();
         for (Word word : words) {
