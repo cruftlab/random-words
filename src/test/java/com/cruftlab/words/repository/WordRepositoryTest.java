@@ -27,6 +27,7 @@ public class WordRepositoryTest {
         final List<Word> wordList = new ArrayList<>();
         for (Word word : words) {
             wordList.add(word);
+            Assert.assertNotNull(word.getId());
         }
         Assert.assertFalse(wordList.isEmpty());
     }
@@ -38,6 +39,7 @@ public class WordRepositoryTest {
         final List<Word> wordList = new ArrayList<>();
         for (Word word : words) {
             wordList.add(word);
+            Assert.assertNotNull(word.getId());
         }
         Assert.assertFalse(wordList.isEmpty());
         Assert.assertEquals(2, wordList.size());
