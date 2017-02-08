@@ -6,5 +6,5 @@ Status](https://travis-ci.org/cruftlab/random-words.svg?branch=master)](https://
 # Local development
 To run the entire application locally, simply issue the following command:
 ```bash
-./mvnw spring-boot:run -Dserver.port=8090
+./mvnw clean spring-boot:run "-Drun.jvmArguments=-Dspring.profiles.active=dev -Dserver.port=8090"
 ```
