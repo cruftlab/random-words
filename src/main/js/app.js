@@ -2,7 +2,7 @@
 
 const React = require('react');
 const ReactDOM = require('react-dom')
-const client = require('./client');
+const axios = require('axios');
 
 class Word extends React.Component {
     constructor(props) {
@@ -11,8 +11,14 @@ class Word extends React.Component {
     }
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/words/combined/random/2'}).done(response => {
-			this.setState({word: response.entity.combinedForm});
+	    axios({
+	        url: '/api/words/combined/random/2',
+	        method: 'get',
+	        responseType: 'json'
+	    }).then(response => {
+			this.setState({word: response.data.combinedForm});
+		}).catch(error => {
+		    console.log("Error fetching random word: " + error);
 		});
 	}
 
