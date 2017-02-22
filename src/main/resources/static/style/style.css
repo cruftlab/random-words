@@ -9,9 +9,12 @@
 body {
  font-family: Georgia, serif;
 }
-#footer {
- text-align: center;
- border-top: 1px solid black;
+footer {
+  border-top: 1px solid black;
+  text-align: center;
+  font-size: 70%;
+  margin-top: 2em;
+  padding-top: 1em;
 }
 #content.center {
  text-align: center;
