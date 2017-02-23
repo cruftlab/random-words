@@ -1,10 +1,11 @@
 'use strict';
 
 const React = require('react');
-const ReactDOM = require('react-dom')
+const ReactDOM = require('react-dom');
 const axios = require('axios');
+import { Router, Route, hashHistory } from 'react-router'
 
-class Word extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {word: ""};
@@ -22,9 +23,17 @@ class Word extends React.Component {
 		});
 	}
 
+	render() {
+	    return <RandomWord word={this.state.word} />
+	}
+}
+
+class RandomWord extends React.Component {
     render() {
         return (
-            <h1>{this.state.word}</h1>
+            <div id="randomWord">
+                <h1>{this.props.word}</h1>
+            </div>
         )
     }
 }
@@ -37,5 +46,8 @@ class Links extends React.Component {
     }
 }
 
-ReactDOM.render(<Word />, document.getElementById('randomWord'));
-ReactDOM.render(<Links />, document.getElementById('links'));
+ReactDOM.render((
+    <Router history={hashHistory}>
+        <Route path="/" component={App}/>
+    </Router>
+), document.getElementById('app'));

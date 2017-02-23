@@ -3,6 +3,7 @@
 }
 #randomWord {
     text-transform: capitalize;
+    text-align: center;
 }
 
 /* body and divs */
