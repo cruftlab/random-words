@@ -46,8 +46,45 @@ class Links extends React.Component {
     }
 }
 
+class Word extends React.Component {
+    render() {
+        return <li>{this.props.word.fullForm}</li>
+    }
+}
+
+class AllWords extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {words: []};
+    }
+
+	componentDidMount() {
+	    axios({
+	        url: '/api/words/all',
+	        method: 'get',
+	        responseType: 'json'
+	    }).then(response => {
+			this.setState({words: response.data});
+		}).catch(error => {
+		    console.log("Error fetching words: " + error);
+		});
+	}
+
+	render() {
+	    var ws = this.state.words.map(word =>
+	        <Word key={word.id} word={word} />
+	    );
+	    return <div id="allWords">
+	        <ul>
+	            {ws}
+	        </ul>
+	    </div>
+	}
+}
+
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={App}/>
+        <Route path="/ord" component={AllWords}/>
     </Router>
 ), document.getElementById('app'));
