@@ -66,3 +66,15 @@ ul.returnlinks li {
   font-size: 60%;
 }
 /* end of classes */
+
+/* lists */
+#allWords li {
+    display: inline;
+}
+#allWords li:after {
+    content: ", ";
+}
+#allWords li:last-child:after {
+    content: "";
+}
+/* end of lists */
