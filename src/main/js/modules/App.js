@@ -1,11 +1,8 @@
-'use strict';
+import React from 'react'
+import axios from 'axios'
+import { RandomWord, Word } from './Word'
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const axios = require('axios');
-import { Router, Route, hashHistory } from 'react-router'
-
-class App extends React.Component {
+class RandomWordApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {word: ""};
@@ -28,15 +25,6 @@ class App extends React.Component {
 	}
 }
 
-class RandomWord extends React.Component {
-    render() {
-        return (
-            <div id="randomWord">
-                <h1>{this.props.word}</h1>
-            </div>
-        )
-    }
-}
 
 class Links extends React.Component {
     render() {
@@ -46,13 +34,7 @@ class Links extends React.Component {
     }
 }
 
-class Word extends React.Component {
-    render() {
-        return <li>{this.props.word.fullForm}</li>
-    }
-}
-
-class AllWords extends React.Component {
+class AllWordsApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {words: []};
@@ -82,9 +64,4 @@ class AllWords extends React.Component {
 	}
 }
 
-ReactDOM.render((
-    <Router history={hashHistory}>
-        <Route path="/" component={App}/>
-        <Route path="/ord" component={AllWords}/>
-    </Router>
-), document.getElementById('app'));
+export { RandomWordApp, AllWordsApp }
