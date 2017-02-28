@@ -1,28 +1,17 @@
-#content {
-    text-align: center;
-}
 #randomWord {
     text-transform: capitalize;
-    text-align: center;
 }
 
 /* body and divs */
 body {
  font-family: Georgia, serif;
+ text-align: center;
 }
 footer {
   border-top: 1px solid black;
-  text-align: center;
   font-size: 70%;
   margin-top: 2em;
   padding-top: 1em;
-}
-#content.center {
- text-align: center;
- background: #ccc;
-}
-#ads {
- text-align: center;
 }
 /* end of body and divs */
 
@@ -78,3 +67,18 @@ ul.returnlinks li {
     content: "";
 }
 /* end of lists */
+
+
+/* nav */
+nav ul {
+    margin-top: 1em;
+    #border-top: 1px solid black;
+    padding-top: 1em;
+    -webkit-padding-start: 0px;
+}
+nav li {
+    display: inline;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+}
+/* end of nav */
