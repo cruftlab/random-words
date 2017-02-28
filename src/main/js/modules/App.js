@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { RandomWord, Word } from './Word'
+import Links from './Links'
 
 class RandomWordApp extends React.Component {
     constructor(props) {
@@ -23,15 +24,6 @@ class RandomWordApp extends React.Component {
 	render() {
 	    return <RandomWord word={this.state.word} />
 	}
-}
-
-
-class Links extends React.Component {
-    render() {
-        return (
-            <a href="/" title="Nytt ord">Nytt ord</a>
-        )
-    }
 }
 
 class AllWordsApp extends React.Component {
@@ -57,6 +49,7 @@ class AllWordsApp extends React.Component {
 	        <Word key={word.id} word={word} />
 	    );
 	    return <div id="allWords">
+	        <h1>Alle ordene:</h1>
 	        <ul>
 	            {ws}
 	        </ul>
@@ -64,4 +57,18 @@ class AllWordsApp extends React.Component {
 	}
 }
 
-export { RandomWordApp, AllWordsApp }
+class App extends React.Component {
+    render() {
+        return (
+            <main>
+            {this.props.children || <RandomWordApp />}
+
+            <nav>
+                <Links />
+            </nav>
+            </main>
+        )
+    }
+}
+
+export { App, RandomWordApp, AllWordsApp }
