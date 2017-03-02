@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Integration tests for {@link WordRepository}
@@ -43,5 +44,30 @@ public class WordRepositoryTest {
         }
         Assert.assertFalse(wordList.isEmpty());
         Assert.assertEquals(2, wordList.size());
+    }
+
+    @Test
+    public void findOneRandomWithValidWord() throws Exception {
+        final String expectedFullForm = "sevje";
+        final Iterable<Word> words = wordRepository.findRandomWith(1, expectedFullForm);
+        Assert.assertNotNull(words);
+        final List<Word> wordList = new ArrayList<>();
+        for (Word word : words) {
+            wordList.add(word);
+            Assert.assertNotNull(word.getId());
+        }
+        Assert.assertFalse(wordList.isEmpty());
+        Assert.assertEquals(2, wordList.size());
+        final boolean[] hasMatchingWord = {false};
+        wordList.forEach(w -> {
+            if (w.getFullForm().equals(expectedFullForm)) hasMatchingWord[0] = true;
+        });
+        Assert.assertTrue("Could not find word matching '" + expectedFullForm + "'", hasMatchingWord[0]);
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void tryToFindFourRandomWithInvalidWord() throws Exception {
+        final String expectedFullForm = "fdsajt43t";
+        wordRepository.findRandomWith(4, expectedFullForm);
     }
 }
