@@ -1,5 +1,6 @@
 package com.cruftlab.words.repository;
 
+import com.cruftlab.words.exception.WordNotFoundException;
 import com.cruftlab.words.model.Word;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -52,7 +53,7 @@ public interface WordRepository extends CrudRepository<Word, Long> {
         // Find word with matching full form
         final Word matchingWord = findByFullForm(fullForm);
         if (matchingWord == null) {
-            throw new NoSuchElementException("No word matching '" + fullForm + "' found");
+            throw new WordNotFoundException(fullForm);
         }
         // Find all other words
         final List<Word> allOtherWords = new ArrayList<>();

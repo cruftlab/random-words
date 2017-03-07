@@ -1,8 +1,9 @@
 package com.cruftlab.words.repository;
 
+import com.cruftlab.words.exception.WordNotFoundException;
 import com.cruftlab.words.model.Word;
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * Integration tests for {@link WordRepository}
@@ -65,7 +65,7 @@ public class WordRepositoryTest {
         Assert.assertTrue("Could not find word matching '" + expectedFullForm + "'", hasMatchingWord[0]);
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test(expected = WordNotFoundException.class)
     public void tryToFindFourRandomWithInvalidWord() throws Exception {
         final String expectedFullForm = "fdsajt43t";
         wordRepository.findRandomWith(4, expectedFullForm);
