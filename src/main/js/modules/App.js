@@ -71,4 +71,28 @@ class App extends React.Component {
     }
 }
 
-export { App, RandomWordApp, AllWordsApp }
+class RandomWordWithApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {word: ""};
+    }
+
+	componentDidMount() {
+	    axios({
+	        url: '/api/words/combined/randomWith/1/'.concat(this.props.params.word),
+	        method: 'get',
+	        responseType: 'json'
+	    }).then(response => {
+			this.setState({word: response.data.combinedForm});
+		}).catch(error => {
+		    console.log("Error fetching random word: " + error);
+		    window.location = '/';
+		});
+	}
+
+	render() {
+	    return <RandomWord word={this.state.word} />
+	}
+}
+
+export { App, RandomWordApp, AllWordsApp, RandomWordWithApp }
