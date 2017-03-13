@@ -71,12 +71,7 @@ class App extends React.Component {
     }
 }
 
-class RandomWordWithApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {word: ""};
-    }
-
+class RandomWordWithApp extends RandomWordApp {
 	componentDidMount() {
 	    axios({
 	        url: '/api/words/combined/randomWith/1/'.concat(this.props.params.word),
@@ -88,10 +83,6 @@ class RandomWordWithApp extends React.Component {
 		    console.log("Error fetching random word: " + error);
 		    window.location = '/';
 		});
-	}
-
-	render() {
-	    return <RandomWord word={this.state.word} />
 	}
 }
 
