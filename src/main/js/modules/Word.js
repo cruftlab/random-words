@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 class RandomWord extends React.Component {
     render() {
@@ -12,7 +13,8 @@ class RandomWord extends React.Component {
 
 class Word extends React.Component {
     render() {
-        return <li>{this.props.word.fullForm}</li>
+        var url = '/ord/'.concat(this.props.word.fullForm);
+        return <li><Link to={url}>{this.props.word.fullForm}</Link></li>
     }
 }
 
