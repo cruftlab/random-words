@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios'
-import { RandomWord, Word } from './Word'
+import { RandomWord, RandomWordPart, Word } from './Word'
 import Links from './Links'
 
 class RandomWordApp extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {word: ""};
+        this.state = {randomWordParts: []};
     }
 
 	componentDidMount() {
@@ -15,14 +15,17 @@ class RandomWordApp extends React.Component {
 	        method: 'get',
 	        responseType: 'json'
 	    }).then(response => {
-			this.setState({word: response.data.combinedForm});
+	        var parts = response.data.words.map(w =>
+	            <RandomWordPart key={w.word.id} fullForm={w.word.fullForm} partialForm={w.partialForm} />
+	        );
+			this.setState({randomWordParts: parts});
 		}).catch(error => {
 		    console.log("Error fetching random word: " + error);
 		});
 	}
 
 	render() {
-	    return <RandomWord word={this.state.word} />
+	    return <RandomWord parts={this.state.randomWordParts} />
 	}
 }
 
@@ -78,7 +81,7 @@ class RandomWordWithApp extends RandomWordApp {
 	        method: 'get',
 	        responseType: 'json'
 	    }).then(response => {
-			this.setState({word: response.data.combinedForm});
+			this.setState({words: response.data.words});
 		}).catch(error => {
 		    console.log("Error fetching random word: " + error);
 		    window.location = '/';
