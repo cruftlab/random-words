@@ -81,7 +81,10 @@ class RandomWordWithApp extends RandomWordApp {
 	        method: 'get',
 	        responseType: 'json'
 	    }).then(response => {
-			this.setState({words: response.data.words});
+	        var parts = response.data.words.map(w =>
+	            <RandomWordPart key={w.word.id} fullForm={w.word.fullForm} partialForm={w.partialForm} />
+	        );
+			this.setState({randomWordParts: parts});
 		}).catch(error => {
 		    console.log("Error fetching random word: " + error);
 		    window.location = '/';

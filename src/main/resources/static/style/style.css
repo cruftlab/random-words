@@ -1,5 +1,16 @@
-#randomWord {
+#randomWord ul {
+    padding-left: 0px;
+}
+#randomWord li {
+    display: inline;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#randomWord li:first-child {
     text-transform: capitalize;
+}
+#randomWord a {
+    color: black;
 }
 
 /* body and divs */

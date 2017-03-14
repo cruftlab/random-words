@@ -4,16 +4,11 @@ import { WordLink } from './Links'
 
 class RandomWord extends React.Component {
     render() {
-        console.log("parts:");
-        console.log(this.props.parts);
-        var parts = this.props.parts.map(part =>
-            <Link key={part.key} to={"/ord/" + part.props.fullForm}>{part.props.partialForm}</Link>
-        );
         return (
             <div id="randomWord">
-                <h1>
-                {parts}
-                </h1>
+                <ul>
+                {this.props.parts}
+                </ul>
             </div>
         )
     }
@@ -21,15 +16,13 @@ class RandomWord extends React.Component {
 
 class Word extends React.Component {
     render() {
-        var url = '/ord/'.concat(this.props.word.fullForm);
-        return <li><Link to={url}>{this.props.word.fullForm}</Link></li>
+        return <li><Link to={"/ord/" + this.props.word.fullForm}>{this.props.word.fullForm}</Link></li>
     }
 }
 
 class RandomWordPart extends React.Component {
     render() {
-        var url = '/ord/'.concat(this.props.word.fullForm);
-        return <li><Link to={url}>{this.props.word.partialForm}</Link></li>
+        return <li><Link to={"/ord/" + this.props.fullForm}>{this.props.partialForm}</Link></li>
     }
 }
 
