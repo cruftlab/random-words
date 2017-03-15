@@ -12,6 +12,9 @@
 #randomWord a {
     color: black;
 }
+#randomWord a:hover {
+    text-decoration: underline;
+}
 
 /* body and divs */
 body {
