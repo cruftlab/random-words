@@ -3,6 +3,7 @@ package com.cruftlab.words.service
 import com.cruftlab.words.model.CombinedWord
 import com.cruftlab.words.model.CombinedWordPart
 import com.cruftlab.words.model.Word
+import com.cruftlab.words.repository.WordRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
@@ -10,7 +11,7 @@ import java.util.*
 @Service
 class WordCombinatorService
 @Autowired
-constructor(private val wordService: WordService) {
+constructor(private val wordRepository: WordRepository) {
 
     private fun getWordPartBasedOnNextWord(firstWord: Word, nextWord: Word): CombinedWordPart {
         val standardCombined = CombinedWordPart(firstWord, firstWord.fullForm)
@@ -45,6 +46,10 @@ constructor(private val wordService: WordService) {
     }
 
     fun combineRandom(number: Int): CombinedWord {
-        return fromWords(wordService.findRandom(number))
+        return fromWords(wordRepository.findRandom(number))
+    }
+
+    fun combineRandomWith(number: Int, word: String): CombinedWord {
+        return fromWords(wordRepository.findRandomWith(number, word))
     }
 }

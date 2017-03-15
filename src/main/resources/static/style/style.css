@@ -1,5 +1,19 @@
-#randomWord {
+#randomWord ul {
+    padding-left: 0px;
+}
+#randomWord li {
+    display: inline;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#randomWord li:first-child {
     text-transform: capitalize;
+}
+#randomWord a {
+    color: black;
+}
+#randomWord a:hover {
+    text-decoration: underline;
 }
 
 /* body and divs */
@@ -72,7 +86,6 @@ ul.returnlinks li {
 /* nav */
 nav ul {
     margin-top: 1em;
-    #border-top: 1px solid black;
     padding-top: 1em;
     -webkit-padding-start: 0px;
 }

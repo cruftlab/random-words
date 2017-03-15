@@ -30,7 +30,7 @@ public class WordCombinatorServiceTest {
                 add(new Word("gebiss"));
                 add(new Word("sevje"));
             }});
-        wordCombinatorService = new WordCombinatorService(new WordService(wordRepository));
+        wordCombinatorService = new WordCombinatorService(wordRepository);
     }
 
     @Test

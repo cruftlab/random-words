@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router'
+import { WordLink } from './Links'
 
 class RandomWord extends React.Component {
     render() {
         return (
             <div id="randomWord">
-                <h1>{this.props.word}</h1>
+                <ul>
+                {this.props.parts}
+                </ul>
             </div>
         )
     }
@@ -12,8 +16,14 @@ class RandomWord extends React.Component {
 
 class Word extends React.Component {
     render() {
-        return <li>{this.props.word.fullForm}</li>
+        return <li><Link to={"/ord/" + this.props.word.fullForm}>{this.props.word.fullForm}</Link></li>
     }
 }
 
-export { Word, RandomWord }
+class RandomWordPart extends React.Component {
+    render() {
+        return <li><Link to={"/ord/" + this.props.fullForm}>{this.props.partialForm}</Link></li>
+    }
+}
+
+export { Word, RandomWord, RandomWordPart }

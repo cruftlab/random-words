@@ -19,8 +19,20 @@ public class WordCombinatorControllerIT {
     private MockMvc mockMvc;
 
     @Test
-    public void getTwoCombinedWords() throws Exception {
+    public void assertGetTwoCombinedWordsIsOk() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/words/combined/random/2/").accept(MediaType.APPLICATION_JSON))
-            .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void assertGetOneCombinedWordWithSpecifiedWordIsOk() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/words/combined/randomWith/1/sevje").accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void assertGetFiveCombinedWordsWithSpecifiedWordFails() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/words/combined/randomWith/5/fewetasf2q").accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
     }
 }

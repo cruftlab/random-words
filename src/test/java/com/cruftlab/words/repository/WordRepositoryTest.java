@@ -1,8 +1,9 @@
 package com.cruftlab.words.repository;
 
+import com.cruftlab.words.exception.WordNotFoundException;
 import com.cruftlab.words.model.Word;
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,5 +44,30 @@ public class WordRepositoryTest {
         }
         Assert.assertFalse(wordList.isEmpty());
         Assert.assertEquals(2, wordList.size());
+    }
+
+    @Test
+    public void findOneRandomWithValidWord() throws Exception {
+        final String expectedFullForm = "sevje";
+        final Iterable<Word> words = wordRepository.findRandomWith(1, expectedFullForm);
+        Assert.assertNotNull(words);
+        final List<Word> wordList = new ArrayList<>();
+        for (Word word : words) {
+            wordList.add(word);
+            Assert.assertNotNull(word.getId());
+        }
+        Assert.assertFalse(wordList.isEmpty());
+        Assert.assertEquals(2, wordList.size());
+        final boolean[] hasMatchingWord = {false};
+        wordList.forEach(w -> {
+            if (w.getFullForm().equals(expectedFullForm)) hasMatchingWord[0] = true;
+        });
+        Assert.assertTrue("Could not find word matching '" + expectedFullForm + "'", hasMatchingWord[0]);
+    }
+
+    @Test(expected = WordNotFoundException.class)
+    public void tryToFindFourRandomWithInvalidWord() throws Exception {
+        final String expectedFullForm = "fdsajt43t";
+        wordRepository.findRandomWith(4, expectedFullForm);
     }
 }
