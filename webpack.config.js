@@ -1,23 +1,23 @@
-var path = require('path');
+var path = require("path");
 
 module.exports = {
-    entry: './src/main/js/index.js',
-    devtool: 'sourcemaps',
+    entry: "./src/main/js/index.js",
+    devtool: "sourcemaps",
     cache: true,
     debug: true,
     output: {
         path: __dirname,
-        filename: './src/main/resources/static/built/bundle.js'
+        filename: "./src/main/resources/static/built/bundle.js"
     },
     module: {
         loaders: [
             {
-                test: path.join(__dirname, '.'),
+                test: path.join(__dirname, "."),
                 exclude: /(node_modules)/,
-                loader: 'babel',
+                loader: "babel",
                 query: {
                     cacheDirectory: true,
-                    presets: ['es2015', 'react']
+                    presets: ["es2015", "react"]
                 }
             }
         ]
