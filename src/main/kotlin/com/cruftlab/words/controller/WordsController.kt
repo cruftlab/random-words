@@ -12,4 +12,9 @@ class WordsController(val wordRepository: WordRepository) {
     fun getAll(): Iterable<Word> {
         return wordRepository.findAll()
     }
+
+    @GetMapping(value = "/api/words/count")
+    fun getCount(): Long {
+        return wordRepository.count()
+    }
 }
