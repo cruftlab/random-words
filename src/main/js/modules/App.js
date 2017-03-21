@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { RandomWord, RandomWordPart, Word } from './Word'
+import { WordStatistics } from './Stats'
 import Links from './Links'
 
 class RandomWordApp extends React.Component {
@@ -92,4 +93,27 @@ class App extends React.Component {
     }
 }
 
-export { App, RandomWordApp, AllWordsApp, RandomWordWithApp }
+class WordStatisticsApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {count: 0};
+    }
+
+	componentDidMount() {
+	    axios({
+	        url: '/api/words/count',
+	        method: 'get',
+	        responseType: 'json'
+	    }).then(response => {
+			this.setState({count: response.data});
+		}).catch(error => {
+		    console.log("Error fetching word count: " + error);
+		});
+	}
+
+	render() {
+	    return <WordStatistics wordCount={this.state.count} />
+	}
+}
+
+export { App, RandomWordApp, AllWordsApp, RandomWordWithApp, WordStatisticsApp }

@@ -7,6 +7,7 @@ export default React.createClass({
             <ul role="nav">
                 <li><Link to="/">Tilfeldig ord</Link></li>
                 <li><Link to="/ord">Alle ord</Link></li>
+                <li><Link to="/statistikk">Statistikk</Link></li>
             </ul>
         )
     }
