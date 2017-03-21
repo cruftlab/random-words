@@ -19,8 +19,14 @@ public class WordsControllerIT {
     private MockMvc mockMvc;
 
     @Test
-    public void getTwoWords() throws Exception {
+    public void assertGetTwoWordsIsOk() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/words/all/").accept(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void assertGetWordCountIsOk() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/words/count/").accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

@@ -70,4 +70,10 @@ public class WordRepositoryTest {
         final String expectedFullForm = "fdsajt43t";
         wordRepository.findRandomWith(4, expectedFullForm);
     }
+
+    @Test
+    public void assertWordCountIsLargerThanOne() throws Exception {
+        final long count = wordRepository.count();
+        Assert.assertTrue(count > 1);
+    }
 }

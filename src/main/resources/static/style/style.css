@@ -97,3 +97,10 @@ nav li {
     margin-right: 0.4em;
 }
 /* end of nav */
+
+/* statistics */
+#statistics table {
+    margin: auto;
+    text-align: left;
+}
+/* end of statistics */
